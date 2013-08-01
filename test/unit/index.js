@@ -147,7 +147,7 @@ describe("index: options", function () {
       });
       expect(options.assetFolders).to.eql({ css: "styles", js: "scripts" });
     });
-    
+
   });
 
   describe(".compilers", function () {
@@ -167,6 +167,12 @@ describe("index: options", function () {
       expect(options.compilers.less).to.be.ok();
     });
 
+    it("supports sass by default", function () {
+      var options = connectAssets.parseOptions({});
+
+      expect(options.compilers.scss).to.be.ok();
+    });
+
     it("allows adding a new compiler without replacing defaults", function () {
       var options = connectAssets.parseOptions({ compilers: { ts: {} } });
 
@@ -181,6 +187,6 @@ describe("index: options", function () {
     });
 
   });
-  
+
 });
 

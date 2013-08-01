@@ -12,8 +12,9 @@ connect-assets can:
 2. Concatenate `.coffee` and `.js` together using [Snockets](https://github.com/TrevorBurnham/snockets)
 3. Serve `.styl` ([Stylus](http://learnboost.github.com/stylus/)) as compiled `.css`
 4. Serve `.less` ([Less](http://lesscss.org/)) as compiled `.css`
-5. Serve files with a cache-control token and use a far-future expires header for maximum efficiency
-6. Avoid redundant git diffs by storing compiled `.js` and `.css` files in memory rather than writing them to the disk when in development.
+5. Serve `.scss` ([Sass](http://sass-lang.com/)) as compiled `.css`
+6. Serve files with a cache-control token and use a far-future expires header for maximum efficiency
+7. Avoid redundant git diffs by storing compiled `.js` and `.css` files in memory rather than writing them to the disk when in development.
 
 ## How do I use it?
 
@@ -29,6 +30,7 @@ Also install any specific compilers you'll need, e.g.:
 npm install coffee-script
 npm install stylus
 npm install less
+npm install node-sass
 ```
 
 Then add this line to your app's configuration:
@@ -37,7 +39,7 @@ Then add this line to your app's configuration:
 app.use(require("connect-assets")());
 ```
 
-Finally, create an `assets` directory in your project and throw all your `.coffee` and `.js` files in /assets/js and `.styl`, `.less`, and `.css` files in /assets/css.
+Finally, create an `assets` directory in your project and throw all your `.coffee` and `.js` files in /assets/js and `.styl`, `.less`, `.scss and `.css` files in /assets/css.
 
 ### Markup functions
 
@@ -80,7 +82,7 @@ If you want to bring in a whole folder of scripts, use `//= require_tree dir` in
 
 See [Snockets](http://github.com/TrevorBurnham/snockets) for more information.
 
-**Note:** CSS concatenation is not supported by connect-assets directly, because Stylus and Less already do a fine job of this. Stylus and Less are basically supersets of CSS, so just rename your `.css` files to `.styl` or `.less` and learn about the @import ([Stylus](http://learnboost.github.com/stylus/docs/import.html), [Less](http://lesscss.org/#-importing)) syntax.
+**Note:** CSS concatenation is not supported by connect-assets directly, because Stylus, Less and Sass already do a fine job of this. Stylus, Less and Sass are basically supersets of CSS, so just rename your `.css` files to `.styl`, `.less` and `.scss` and learn about the @import ([Stylus](http://learnboost.github.com/stylus/docs/import.html), [Less](http://lesscss.org/#-importing), [Sass](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#import)) syntax.
 
 ## Options
 
