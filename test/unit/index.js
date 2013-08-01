@@ -159,7 +159,11 @@ describe("index: options", function () {
 
     it("supports coffeescript by default");
 
-    it("supports stylus by default");
+    it("supports stylus by default", function () {
+      var options = connectAssets.parseOptions({});
+
+      expect(options.compilers.styl).to.be.ok();
+    });
 
     it("supports less by default", function () {
       var options = connectAssets.parseOptions({});
